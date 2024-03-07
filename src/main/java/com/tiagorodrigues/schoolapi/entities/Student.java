@@ -1,13 +1,23 @@
 package com.tiagorodrigues.schoolapi.entities;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "students")
 public class Student implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
     private String phone;
+
+    public Student(){
+
+    }
 
     public Student(Long id, String name, String email, String phone) {
         this.id = id;
